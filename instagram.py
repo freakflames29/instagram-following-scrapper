@@ -1,4 +1,5 @@
 import time
+import os
 from telnetlib import EC
 
 from selenium import webdriver
@@ -32,6 +33,9 @@ try:
             time.sleep(3)
         names = driver.find_elements_by_class_name('FPmhX')
         print("Gotcha Follwers scraped " + str(len(names)) + " ! writting followers in followers.txt...")
+
+        os.system('notify-send "Printing follwings..." && paplay /usr/share/sounds/freedesktop/stereo/complete.oga')
+        
         er = open('follwers.txt', 'r+')
         er.truncate()
         er.close()
