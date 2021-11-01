@@ -35,13 +35,13 @@ try:
         print("Gotcha Follwers scraped " + str(len(names)) + " ! writting followers in followers.txt...")
 
         os.system('notify-send "Printing follwings..." && paplay /usr/share/sounds/freedesktop/stereo/complete.oga')
-        
+
         er = open('follwers.txt', 'r+')
         er.truncate()
         er.close()
         with open("follwers.txt", 'at') as f:
 
-            f.write("Total Followers scraped: {count} \n".format(count=len(names)))
+            f.write("Total Followers scraped of {user} is: {count} \n".format(count=len(names),user=user))
             for name in names:
                 wr = name.text + " --> " + name.get_attribute('href')
                 f.write(wr + '\n')
